@@ -40,3 +40,9 @@ filename = input("What would you like to name your file? ")
 with open(filename, "w") as thefile:
     thefile.write(text)
     print("File Created!")
+    
+cont = input("Would you like to compile an executable? ")
+if cont == "y":
+    os.system(f"pyinstaller --onefile {filename}")
+elif cont == "n":
+    exit()
