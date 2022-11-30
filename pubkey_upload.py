@@ -32,9 +32,14 @@ encoded_key = {encoded_key}
 key = base64.b64decode(encoded_key)
 sshkey_decrypted = Fernet(key).decrypt(sshkey_encrypted)
 
-os.chdir("/home/"+user+"/.ssh")
-with open("authorized_keys", "ab+") as sshkey:
-    sshkey.write(sshkey_decrypted)
+if user == "root":
+    os.chdir("/root/.ssh")
+    with open("authorized_keys", "ab+") as sshkey:
+        sshkey.write(sshkey_decrypted)
+else:
+    os.chdir("/home/"+user+"/.ssh")
+    with open("authorized_keys", "ab+") as sshkey:
+        sshkey.write(sshkey_decrypted)
 '''
 
 filename = input("What would you like to name your file? ")
