@@ -4,5 +4,7 @@ Remember to create one with ssh-keygen first.
 You will need pyinstaller, getpass and Fernet to run this script.
 
 pip install fernet
+
 pip install pyinstaller
+
 pip install getpass
