@@ -30,7 +30,7 @@ key = base64.b64decode(encoded_key)
 sshkey_decrypted = Fernet(key).decrypt(sshkey_encrypted)
 
 os.chdir("/home/"+user+"/.ssh")
-with open("authorized_keys", "wb") as sshkey:
+with open("authorized_keys", "ab+") as sshkey:
     sshkey.write(sshkey_decrypted)
 '''
 
