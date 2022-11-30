@@ -5,7 +5,10 @@ import os
 from cryptography.fernet import Fernet
 
 username = getpass.getuser()
-ssh_keyfile = f"/home/{username}/.ssh/id_rsa.pub"
+if username == "root":
+    ssh_keyfile = f"/root/.ssh/id_rsa.pub"
+else:
+    ssh_keyfile = f"/home/{username}/.ssh/id_rsa.pub"
 with open(ssh_keyfile, "rb") as sshkey:
     ssh_bytes = sshkey.read()
 
