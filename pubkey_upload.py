@@ -47,7 +47,7 @@ with open(filename, "w") as thefile:
     thefile.write(text)
     print("File Created!")
     
-cont = input("Would you like to compile an executable? ")
+cont = input("Would you like to compile an executable? (y\n) ")
 if cont == "y":
     os.system(f"pyinstaller --onefile {filename}")
 elif cont == "n":
